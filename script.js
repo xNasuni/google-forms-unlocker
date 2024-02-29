@@ -1,4 +1,4 @@
-(async () => {
+window.onload = (async () => {
     if (window.LockedModeSpoof === true) {
         throw new Error("Don't re-execute this script! Please just refresh and execute again.");
     }
@@ -211,4 +211,4 @@
             }, Form)
         }
     }
-})()
+})
