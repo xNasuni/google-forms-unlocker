@@ -27,7 +27,7 @@ fetch("https://cdn.jsdelivr.net/gh/xNasuni/google-forms-unlocker@latest/script.u
 > 4. If it does open a new window, you need to do 1 of 2 things, if it shows up as Start Quiz, then you need you close the tab (Ctrl + W), and re-run it until it actually opens it.
 > 5. When it's opened, you're free to leave the tab and search for stuff or whatever you'd like, as I disabled the features for the website to tell when you leave the page.
 
-#### !! IF YOU CLOSE THE TAB AND RE-OPEN THE QUIZ, TEACHERS WILL SEE THAT YOU OPENED IT TWICE. I'M LOOKING FOR A BYPASS FOR THIS BUT IN THE MEANTIME DON'T CLOSE THE QUIZ OR ELSE TEACHERS WILL GET SENT AN EMAIL AND THIS WILL SHOW UP ON YOUR SCORE !!
+#### !! IF YOU RUN THE SCRIPT AND YOU ARE IN THE QUIZ, DONT CLOSE THE TAB BECAUSE THEN TEACHERS WILL SEE THAT YOU OPENED IT TWICE WHEN YOU GO TO OPEN IT AGAIN. I'M LOOKING FOR A BYPASS FOR THIS BUT IN THE MEANTIME DON'T CLOSE THE QUIZ OR ELSE TEACHERS WILL GET SENT AN EMAIL AND THIS WILL SHOW UP ON YOUR SCORE !!
 ![image](https://github.com/xNasuni/google-forms-unlocker/assets/62818119/27ffb1ac-a3ef-4cfb-8306-c06d03d2b1a5)
 
 
