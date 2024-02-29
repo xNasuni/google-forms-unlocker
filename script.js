@@ -198,7 +198,7 @@
     var FormClass = 'mGzJpd'
     
     var Header = await WaitForSelector(`.${HeaderClass}`)
-    console.log(Header)
+    console.warn(Header)
     var Form = document.getElementsByClassName(FormClass)[0]
     
     if (Header === undefined) {
