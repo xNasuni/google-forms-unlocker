@@ -1,4 +1,4 @@
-window.onload = (async () => {
+(async () => {
     if (window.LockedModeSpoof === true) {
         throw new Error("Don't re-execute this script! Please just refresh and execute again.");
     }
@@ -179,9 +179,8 @@ window.onload = (async () => {
     var Header = document.getElementsByClassName(HeaderClass)[0]
     var Form = document.getElementsByClassName(FormClass)[0]
     
-    if (Header !== undefined) {
+    if (Header === undefined) {
         console.warn(`Can't find header ${Header}, possibly due to pre-existing User-Agent Spoofer. Continuing action!`)
-    
     } else {
         if (Form === undefined) {
             throw new ReferenceError(`Can't find form ${Form}, might be due to you running it on a page that wasn't 'docs.google.com'.`)
@@ -211,4 +210,4 @@ window.onload = (async () => {
             }, Form)
         }
     }
-})
+})()
