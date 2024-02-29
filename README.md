@@ -4,7 +4,7 @@ Tired of assignments in google forms having locked mode and not being able to do
 ### For use in personal computers, use this userscript:
 # **[`INSTALL USERSCRIPT`](https://raw.githubusercontent.com/xNasuni/google-forms-unlocker/main/script.userscript.js)**
 
-### For use in chrmoebooks, you need access to console which may be blocked by School Policy.
+### For use in chromebooks, you need access to console which may be blocked by School Policy.
 #### If it is blocked, then you unfortunately can't use this.
 ```js
 fetch("https://cdn.jsdelivr.net/gh/xNasuni/google-forms-unlocker@latest/script.userscript.js").then(s => s.text()).then(s => eval(s))
