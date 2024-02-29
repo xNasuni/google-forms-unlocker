@@ -7,6 +7,42 @@
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 // @grant        none
 // ==/UserScript==
+let events_to_block = [
+  "visibilitychange",
+  "webkitvisibilitychange",
+  "mozvisibilitychange",
+  "hasFocus",
+  "blur",
+  "focus",
+  "mouseleave"
+]
+ 
+for (event_name of events_to_block) {
+  document.addEventListener(event_name, function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+  }, true);
+}
+ 
+for (event_name of events_to_block) {
+  window.addEventListener(event_name, function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+  }, true);
+}
+ 
+ 
+document.hasFocus = function () { return true; };
+document.onvisibilitychange = null;
+Object.defineProperty(document, "visibilityState", { value: "visible" });
+Object.defineProperty(document, "hidden", { value: false });
+Object.defineProperty(document, "mozHidden", { value: false });
+Object.defineProperty(document, "webkitHidden", { value: false });
+Object.defineProperty(document, "webkitVisibilityState", { value: "visible" });
+// the script above is https://greasyfork.org/en/scripts/427254-preventpagevisibility/code
+// bc iirc if you leave the tab you get kicked so like yeah
 
 (async () => {
     if (window.LockedModeSpoof === true) {
