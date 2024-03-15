@@ -2,7 +2,7 @@
 Tired of assignments in google forms having locked mode and not being able to do them on other computers? (or if you want to cheat which i do not condone at all.) Use this :)
 
 ### For use in personal computers, use this userscript:
-# **[`INSTALL USERSCRIPT`](https://raw.githubusercontent.com/xNasuni/google-forms-unlocker/main/script.userscript.js)**
+# **[`INSTALL USERSCRIPT`](https://raw.githubusercontent.com/xNasuni/google-forms-unlocker/main/script.user.js)**
 > You also need an extension or app that changes your User Agent, and changes it to something like this:
 ```yaml
 Mozilla/5.0 (X11; CrOS x86_64 14541.0.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36
