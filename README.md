@@ -11,7 +11,7 @@ Mozilla/5.0 (X11; CrOS x86_64 14541.0.0) AppleWebKit/537.36 (KHTML, like Gecko) 
 ### For use in chromebooks, you need access to console which may be blocked by School Policy.
 #### If it is blocked, then you unfortunately can't use this.
 ```js
-fetch("https://cdn.jsdelivr.net/gh/xNasuni/google-forms-unlocker@latest/script.userscript.js").then(s => s.text()).then(s => eval(s))
+fetch("https://cdn.jsdelivr.net/gh/xNasuni/google-forms-unlocker@latest/script.user.js").then(s => s.text()).then(s => eval(s))
 ```
 > Run the script above in a google form and you should see 2 buttons appear, press the one on the left if you want to do the quiz normally, and press the one on the right to do it without actually being in locked mode.
 
