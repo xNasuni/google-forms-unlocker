@@ -1,11 +1,11 @@
 // ==UserScript==
 // @name        Google Forms Unlocker
 // @namespace   https://github.com/xNasuni/google-forms-unlocker
-// @description Unlocks Google Forms from being locked.
+// @description Stops Google Forms from being locked, consequently letting you do them without a chromebook.
 // @author      Mia @ github.com/xNasuni
 // @match       *://docs.google.com/forms/*
 // @grant       GM_addStyle
-// @version     1.6
+// @version     1.7
 // @run-at		document-start
 // @updateURL   https://github.com/xNasuni/google-forms-unlocker/raw/main/script.user.js
 // @downloadURL https://github.com/xNasuni/google-forms-unlocker/raw/main/script.user.js
@@ -21,18 +21,18 @@ var shouldSpoof = location.hash === "#gfu"
 // support for browsers other than chrome.
 unsafeWindow.chrome = unsafeWindow.chrome || {}
 unsafeWindow.chrome.runtime = unsafeWindow.chrome.runtime || {}
-unsafeWindow.chrome.runtime.sendMessage = unsafeWindow.chrome.runtime.sendMessage || function(){}
+unsafeWindow.chrome.runtime.sendMessage = unsafeWindow.chrome.runtime.sendMessage || function(extId, payload, callback){chrome.runtime.lastError = 1; callback()}
 
 const oldSendMessage = unsafeWindow.chrome.runtime.sendMessage
 
 if (GM_addStyle === undefined) {
 	// https://stackoverflow.com/questions/23683439/gm-addstyle-equivalent-in-tampermonkey
 	GM_addStyle = function (css) {
-		const style = document.getElementById("GM_addStyleBy8626") || (function () {
-			const style = document.createElement('style');
+		const style = unsafeWindow.document.getElementById("GM_addStyleBy8626") || (function () {
+			const style = unsafeWindow.document.createElement('style');
 			style.type = 'text/css';
 			style.id = "GM_addStyleBy8626";
-			document.head.appendChild(style);
+			unsafeWindow.document.head.appendChild(style);
 			return style;
 		})();
 		const sheet = style.sheet;
@@ -50,7 +50,7 @@ function MatchExtensionId(ExtensionId) {
 }
 
 function GetGoogleForm() {
-	const Containers = document.querySelectorAll("div.RGiwf")
+	const Containers = unsafeWindow.document.querySelectorAll("div.RGiwf")
 	var Form
 
 	for (const Container of Containers) {
@@ -65,7 +65,7 @@ function GetGoogleForm() {
 }
 
 function GetQuizHeader() {
-	const QuizHeader = document.querySelector("div.mGzJpd")
+	const QuizHeader = unsafeWindow.document.querySelector("div.mGzJpd")
 	return QuizHeader
 }
 
@@ -93,7 +93,7 @@ function MakeButton(Text, Callback, Color) {
 
 	const ButtonHolder = Form.childNodes[2]
 
-	const Button = document.createElement("div")
+	const Button = unsafeWindow.document.createElement("div")
 	Button.classList.value = "uArJ5e UQuaGc Y5sE8d TIHcue QvWxOd"
 	Button.style.marginLeft = "10px"
 	Button.style.backgroundColor = Color
@@ -102,7 +102,7 @@ function MakeButton(Text, Callback, Color) {
 	Button.setAttribute("mia-gfu-state", "custom-button")
 	ButtonHolder.appendChild(Button)
 
-	const Glow = document.createElement("div")
+	const Glow = unsafeWindow.document.createElement("div")
 	Glow.classList.value = "Fvio9d MbhUzd"
 	Glow.style.top = '21px'
 	Glow.style.left = '9px'
@@ -110,11 +110,11 @@ function MakeButton(Text, Callback, Color) {
 	Glow.style.height = '110px'
 	Button.appendChild(Glow)
 
-	const TextContainer = document.createElement("span")
+	const TextContainer = unsafeWindow.document.createElement("span")
 	TextContainer.classList.value = "l4V7wb Fxmcue"
 	Button.appendChild(TextContainer)
 
-	const TextSpan = document.createElement("span")
+	const TextSpan = unsafeWindow.document.createElement("span")
 	TextSpan.classList.value = "NPEfkd RveJvd snByac"
 	TextSpan.innerText = Text
 	TextContainer.appendChild(TextSpan)
@@ -127,7 +127,7 @@ function MakeButton(Text, Callback, Color) {
 async function IsOnChromebook() {
 	return new Promise((resolve, _reject) => {
 		oldSendMessage(kAssessmentAssistantExtensionId, {command: "isLocked"}, function(_response) {
-			if (chrome.runtime.lastError) {
+			if (unsafeWindow.chrome.runtime.lastError) {
 				resolve(false)
 			}
 			resolve(true)
@@ -158,15 +158,15 @@ async function Initialize() {
 		switch (MatchErrorType(Errored)) {
 			case ERROR_USER_AGENT:
 				const QuizHeader = GetQuizHeader()
-				const Error = document.createElement("div")
+				const Error = unsafeWindow.document.createElement("div")
 				Error.classList.value = "gfu-red"
 				QuizHeader.appendChild(Error)
 
-				const ErrorSpan = document.createElement("span")
+				const ErrorSpan = unsafeWindow.document.createElement("span")
 				ErrorSpan.innerText = "Google Forms Unlocker - In order to continue, you need a User Agent Spoofer. "
 				Error.appendChild(ErrorSpan)
 
-				const AnchorSpan = document.createElement("a")
+				const AnchorSpan = unsafeWindow.document.createElement("a")
 				AnchorSpan.classList.value = "gfu-red"
 				AnchorSpan.innerText = "Install one here."
 				AnchorSpan.target = "_blank"
@@ -231,7 +231,7 @@ setInterval(() => {
 		console.warn("Not intercepting", ExtensionId, Payload, Callback)
 
         return oldSendMessage(ExtensionId, Payload, function() {
-			if (chrome.runtime.lastError) {
+			if (unsafeWindow.chrome.runtime.lastError) {
 				alert(`Google Forms Unlocker, please report this to the GitHub https://github.com/xNasuni/google-forms-unlocker/issues\nUnhandled error: ${JSON.stringify(chrome.runtime.lastError)}`)
 				return
 			}
@@ -240,23 +240,28 @@ setInterval(() => {
     }
 })
 
-Object.defineProperty(document, 'hidden', {
+unsafeWindow.document.addEventListener("DOMContentLoaded", () => {
+	unsafeWindow.console.log("Initialized")
+	Initialize()
+})
+
+Object.defineProperty(unsafeWindow.document, 'hidden', {
 	value: false,
 	writable: false
 })
-Object.defineProperty(document, 'visibilityState', {
+Object.defineProperty(unsafeWindow.document, 'visibilityState', {
 	value: "visible",
 	writable: false
 })
-Object.defineProperty(document, 'webkitVisibilityState', {
+Object.defineProperty(unsafeWindow.document, 'webkitVisibilityState', {
 	value: "visible",
 	writable: false
 })
-Object.defineProperty(document, 'mozVisibilityState', {
+Object.defineProperty(unsafeWindow.document, 'mozVisibilityState', {
 	value: "visible",
 	writable: false
 })
-Object.defineProperty(document, 'msVisibilityState', {
+Object.defineProperty(unsafeWindow.document, 'msVisibilityState', {
 	value: "visible",
 	writable: false
 })
@@ -274,7 +279,3 @@ unsafeWindow.document.addEventListener = function() {
 
 	return oldAddEventListener.apply(this, arguments)
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-	Initialize()
-})

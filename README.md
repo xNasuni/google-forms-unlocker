@@ -1,6 +1,6 @@
 ###### tags: google forms locked mode bypass, google forms unlocked, google forms unlocker, google forms lockpicker, google forms locked mode without chromebook
 
-# Google Forms Unlocker [1.6]
+# Google Forms Unlocker [1.7]
 >### Created by [Mia](https://github.com/xNasuni/)<br>Made with ❤
 
 > [!IMPORTANT]<br>This repository contains scripts & methods that bypass google forms locked mode with ease, if you have any trouble you can use the discussions section to ask for help.
