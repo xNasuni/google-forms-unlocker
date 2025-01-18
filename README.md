@@ -51,7 +51,7 @@ Now that you have the user script installed, you can go to any google form and i
 ### 1 — Setting up the User Agent Changer
 > Because you aren't on an actual Chromebook, you need to convince the website that you are on one. The way you can do this is by using a User Agent Changer, and setting it to something like this:
 > ```
-> Mozilla/5.0 (X11; CrOS x86_64 14541.0.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+> Mozilla/5.0 (X11; CrOS x86_64 16093.68.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.6834.94 Safari/537.36
 > ```
 > When you visit websites with this User Agent, they will see that you are on a Chromebook because of the ChromeOS platform tagging, like **`CrOS`**.
 
@@ -72,8 +72,8 @@ Now that you have the user script installed, you can go to any google form and i
 > Userscript managers are extensions that make it easier to run code without having to actually use the developer console. You can install scripts that are code that get injected on websites, this is useful because it makes it easier for you, because all you have to do is install the user-script that I made and have the code run to force unlock the locked quiz. **If you are on a Chromebook and installing extensions is blocked, you can use the developer console as a workaround.**
 
 - [TamperMonkey](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) (+11,000,000 users)
-- [OrangeMonkey](https://chromewebstore.google.com/detail/orangemonkey-pro/ggdmdoodcfamjggeigifpjfnnjfbland) **— Personal Choice** (+2,000,000 users)
-- [ViolentMonkey](https://chromewebstore.google.com/detail/violentmonkey/jinjaccalgkegednnccohejagnlnfdag) (+1,000,000 users)
+- [OrangeMonkey](https://chromewebstore.google.com/detail/orangemonkey-pro/ggdmdoodcfamjggeigifpjfnnjfbland) (+2,000,000 users)
+- [ViolentMonkey](https://chromewebstore.google.com/detail/violentmonkey/jinjaccalgkegednnccohejagnlnfdag) **— Personal Choice** (+1,000,000 users)
 ---
 ### Spoofing Your User Agent
 > [!IMPORTANT]
