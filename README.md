@@ -23,7 +23,7 @@
 ### 1 — Paste the script in the developer console while in the form
 > You need to paste [this script](https://github.com/xNasuni/google-forms-unlocker/tree/main/script.js) into the developer tools console on a quiz page where you should see the "Start quiz" button. Don't press "Start quiz" because this will put you into locked mode.
 ### 2 - Executing the script
-> After you're done pasting it into the console, you need to press `Enter`, and as soon as a new tab opens, you need to press `Shift + Tab` to move back to the tab you were just in, forcing the opened tab to delay script execution, just enough for our script to run first.<br>
+> After you're done pasting it into the console, you need to press `Enter`, and as soon as a new tab opens, you need to press `Ctrl + Shift + Tab` to move back to the tab you were just in, forcing the opened tab to delay script execution, just enough for our script to run first.<br>
 
 If you did the steps correctly, you should have a tab with the quiz opened, like normal, but inside of the quiz like if it wasn't locked. You can do whatever you want from here. After you are done with the quiz you can just submit it like normal. If you don't see the quiz, close the tab that was opened and redo this step.
 
