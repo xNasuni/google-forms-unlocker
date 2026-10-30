@@ -91,7 +91,7 @@ function MakeButton(Text, Callback, Color) {
 	const Form = GetGoogleForm()
 	if (Form === undefined) { return false }
 
-	const ButtonHolder = Form.childNodes[2]
+	const ButtonHolder = Form.querySelector('[role="button"]')?.parentElement;
 
 	const Button = unsafeWindow.document.createElement("div")
 	Button.classList.value = "uArJ5e UQuaGc Y5sE8d TIHcue QvWxOd"
@@ -186,7 +186,7 @@ async function Initialize() {
 	const IsRealManagedChromebook = await IsOnChromebook()
 
 	if (IsRealManagedChromebook === false) {
-		const ButtonHolder = Form.childNodes[2]
+		const ButtonHolder = Form.querySelector('[role="button"]')?.parentElement;
 		for (const Button of ButtonHolder.childNodes) {
 			if (Button.getAttribute("mia-gfu-state") === "custom-button") { continue }
 			Button.style.backgroundColor = "#ccc"
