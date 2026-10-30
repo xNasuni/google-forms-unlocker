@@ -5,7 +5,7 @@
 // @author      Mia @ github.com/xNasuni
 // @match       *://docs.google.com/forms/*
 // @grant       GM_addStyle
-// @version     1.7
+// @version     1.8
 // @run-at		document-start
 // @updateURL   https://github.com/xNasuni/google-forms-unlocker/raw/main/script.user.js
 // @downloadURL https://github.com/xNasuni/google-forms-unlocker/raw/main/script.user.js
